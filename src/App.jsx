@@ -4,6 +4,7 @@ import Home from "./modules/Home/Home"
 
 
 const App = () => {
+
   return (
     <div>
       <Header />
