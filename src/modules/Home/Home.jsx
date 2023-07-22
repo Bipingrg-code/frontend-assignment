@@ -2,7 +2,6 @@ import { useState, useEffect } from "react"
 import Hero from "../../components/Heros/Hero"
 import ProductsCards from "../../components/ProductsCards/ProductsCards"
 import Stats from "../../components/Stats/Stats"
-import Products from "../Products/Products"
 import Categories from "../../components/Categories/Categories"
 
 const Home = () => {

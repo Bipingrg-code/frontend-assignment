@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Navigate, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 const Product = () => {
@@ -20,7 +20,29 @@ const Product = () => {
     if (!Object.keys(product).length > 0) {
         <div>Items Not Found</div>
     }
-
+    //cartHandle
+    const handleCart = (product, redirect) => {
+        console.log(product)
+        const cart = JSON.parse(localStorage.getItem('cart')) || []
+        const isProductExits = cart.find(item => item.id === product.id)
+        if (isProductExits) {
+            const updatedCart = cart.map(item => {
+                if (item.id === product.id) {
+                    return {
+                        ...item,
+                        quantity: item.quantity + 1
+                    }
+                }
+                return item
+            })
+            localStorage.setItem('cart', JSON.stringify(updatedCart))
+        } else {
+            localStorage.setItem('cart', JSON.stringify([...cart, { ...product, quantity: 1 }]))
+        }
+        if (redirect) {
+            Navigate('/cart')
+        }
+    }
     return (
 
         <section className="text-gray-600 body-font overflow-hidden">
@@ -95,8 +117,8 @@ const Product = () => {
                         <div className="flex justify-between items-center mt-10">
                             <span className="title-font font-medium text-2xl text-gray-900">Rs.{product?.price}</span>
                             <div className="flex">
-                                <button className="mr-2 flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Buy Now</button>
-                                <button className="flex ml-auto text-slate-800 border border-blue-500 py-2 px-6 focus:outline-none hover:bg-blue-600 hover:text-white rounded">Add to Cart</button>
+                                <button type="button" className="mr-2 flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded" onClick={() => handleCart(product, true)}>Buy Now</button>
+                                <button type="button" className="flex ml-auto text-slate-800 border border-blue-500 py-2 px-6 focus:outline-none hover:bg-blue-600 hover:text-white rounded" onClick={() => handleCart(product)}>Add to Cart</button>
                             </div>
                             <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                                 <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
