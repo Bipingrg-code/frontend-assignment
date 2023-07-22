@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 const Products = ({ products = [] }) => {
     return (
         <div>
@@ -14,7 +14,7 @@ const Products = ({ products = [] }) => {
                                 //console.log(items)
                                 const {id, title, price, image, category, description, rating} = items
                                 return (
-                                    <div className="lg:w-1/4 md:w-1/2 p-4 w-full shadow-md cursor-pointer">
+                                    <Link to={`/products/${id}`} className="lg:w-1/4 md:w-1/2 p-4 w-full shadow-md cursor-pointer">
                                         <a className="block relative h-48 rounded overflow-hidden">
                                             <img alt={title} className="object-contain object-center w-full h-full block" src={image} />
                                         </a>
@@ -23,7 +23,7 @@ const Products = ({ products = [] }) => {
                                             <h2 className="text-gray-900 title-font text-lg font-medium">{title}</h2>
                                             <p className="mt-1 text-md font-semibold">Rs.{price}</p>
                                         </div>
-                                    </div>
+                                    </Link>
                                 )
                             })
                         }
