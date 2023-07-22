@@ -3,8 +3,8 @@ import Header from "./components/Headers/Header"
 import Home from "./modules/Home/Home"
 import Footer from "./components/Footer/Footer"
 import Product from "./modules/Product/Product"
-import Products from "./components/Products/Products"
-import Stats from "./components/Stats/Stats"
+import Products from "./modules/Products/Products"
+
 
 
 const App = () => {
@@ -14,9 +14,9 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="/products" element={<Products />}/>
-        <Route path="/stats" element={<Stats />}/>
         <Route path="/products/:id" element={<Product />}/>
+        <Route path="/products" element={<Products />} />
+        <Route path="*" element={<div>404 Not Found Page</div>} />
       </Routes>
       <Footer />
     </div>

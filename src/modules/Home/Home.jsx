@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
-import Features from "../../components/Features/Features"
 import Hero from "../../components/Heros/Hero"
-import Products from "../../components/Products/Products"
+import ProductsCards from "../../components/ProductsCards/ProductsCards"
 import Stats from "../../components/Stats/Stats"
+import Products from "../Products/Products"
+import Categories from "../../components/Categories/Categories"
 
 const Home = () => {
   const [products, setProducts] = useState([])
@@ -20,13 +21,14 @@ const Home = () => {
   return (
     <>
       <Hero />
+      <Categories />
       {
         products.length > 0 ?
-        <Products products={products}/>
+        <ProductsCards products={products}/>
         :
         <div>Loading items..!</div>
       }
-      <Features />
+    
       <Stats />
     </>
   )

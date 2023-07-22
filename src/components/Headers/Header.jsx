@@ -1,24 +1,26 @@
 import { Link } from "react-router-dom"
 
+const navigation = [
+    {
+        name: 'Home',
+        path: '/'
+    },
+    {
+        name: 'Products',
+        path: '/products'
+    },
+    {
+        name: 'About',
+        path: '/about'
+    },
+    {
+        name: 'Contact',
+        path: '/contact'
+    }
+]
+
 const Header = () => {
-    const navigation = [
-        {
-            name: 'Home',
-            path: '/'
-        },
-        {
-            name: 'Products',
-            path: '/products'
-        },
-        {
-            name: 'About',
-            path: '/about'
-        },
-        {
-            name: 'Contact',
-            path: '/contact'
-        }
-    ]
+
     return (
         <div>
             <header className="body-font shadow-lg">
@@ -30,11 +32,10 @@ const Header = () => {
                         <span className="ml-3 text-xl">OnlineStore</span>
                     </Link>
                     <nav className=" text-slate-500 md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-
                         {
-                            navigation.map((navItem, index) => {
+                            navigation.map((navLink) => {
                                 return(
-                                    <Link to={navItem.path} key={index} className="mr-5 hover:text-slate-800">{navigation.name}</Link>
+                                    <Link to={navLink.path} className="mr-5 hover:text-slate-800">{navLink.name}</Link>
                                 )
                             })
                         }

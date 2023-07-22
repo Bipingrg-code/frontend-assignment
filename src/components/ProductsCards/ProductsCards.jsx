@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
-const Products = ({ products = [] }) => {
+const ProductsCards = ({ products = [] }) => {
     return (
         <div>
             <div className="flex flex-col text-center w-full">
                 <h2 className="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">Our Products</h2>
-                <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900">Our Most Populer Products</h1>
+                <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900">All Populer Products</h1>
             </div>
             <section className="text-gray-600 body-font">
                 <div className="container px-5 py-20 mx-auto">
@@ -34,4 +34,4 @@ const Products = ({ products = [] }) => {
     )
 }
 
-export default Products
+export default ProductsCards
