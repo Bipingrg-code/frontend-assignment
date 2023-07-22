@@ -14,7 +14,7 @@ const ProductsCards = ({ products = [] }) => {
                                 //console.log(items)
                                 const {id, title, price, image, category, description, rating} = items
                                 return (
-                                    <Link to={`/products/${id}`} className="lg:w-1/4 md:w-1/2 p-4 w-full shadow-md cursor-pointer">
+                                    <Link to={`/products/${id}`} key={id} className="lg:w-1/4 md:w-1/2 p-4 w-full shadow-md cursor-pointer">
                                         <a className="block relative h-48 rounded overflow-hidden">
                                             <img alt={title} className="object-contain object-center w-full h-full block" src={image} />
                                         </a>

@@ -33,9 +33,9 @@ const Header = () => {
                     </Link>
                     <nav className=" text-slate-500 md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
                         {
-                            navigation.map((navLink) => {
+                            navigation.map((navLink, idnex) => {
                                 return(
-                                    <Link to={navLink.path} className="mr-5 hover:text-slate-800">{navLink.name}</Link>
+                                    <Link to={navLink.path} key={idnex} className="mr-5 hover:text-slate-800">{navLink.name}</Link>
                                 )
                             })
                         }
